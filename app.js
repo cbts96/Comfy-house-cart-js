@@ -8,6 +8,7 @@ const cartItems = document.querySelector(".cart-items");
 const cartTotal = document.querySelector(".cart-total");
 const cartContent = document.querySelector(".cart-content");
 const productsDOM = document.querySelector(".products-center");
+const shop = document.querySelector(".banner-btn");
 
 
 //cart
@@ -130,6 +131,7 @@ class UI {
     cartBtn.addEventListener("click", this.showCart);
     closeCartBtn.addEventListener("click", this.hideCart);
     cartAll.addEventListener("click",this.hideCart);
+    shop.addEventListener("click",this.scroll);
     
   }
   populateCart(cart) {
@@ -174,7 +176,16 @@ class UI {
       }
     });
   }
+//scroll to products
 
+
+scroll(){
+  window.scroll({
+    top: 1000,
+    left: 0,
+    behavior: 'smooth'
+  });
+}
   clearCart() {
     let cartItems = cart.map(item => item.id);
     cartItems.forEach(id => this.removeItem(id));
@@ -194,6 +205,7 @@ class UI {
   getSingleButton(id) {
     return buttonsDOM.find(button => button.dataset.id === id);
   }
+  
 }
 
 //local storage
